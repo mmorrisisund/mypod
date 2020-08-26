@@ -5,7 +5,6 @@ const logger = require('morgan')
 const sassMiddleware = require('node-sass-middleware')
 
 const apiRouter = require('./routes/api.js')
-const indexRouter = require('./routes/index')
 
 const app = express()
 
@@ -23,7 +22,6 @@ app.use(
 )
 app.use(express.static(path.join(__dirname, 'public')))
 
-app.use('/', indexRouter)
 app.use('/api/v1', apiRouter)
 
 module.exports = app
