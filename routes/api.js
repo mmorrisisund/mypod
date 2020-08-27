@@ -13,10 +13,13 @@ router.get('/search', async (req, res) => {
 })
 
 router.get('/lookup', async (req, res) => {
-  const { data } = await axios.get(`${itunesUrl}${req.url}`)
-  const { data: feedRss } = await axios.get(data.results[0].feedUrl)
-  const feed = await parser.parseString(feedRss)
-  res.json(feed)
+  const { data: itunesResults } = await axios.get(`${itunesUrl}${req.url}`)
+  const itunesInfo = itunesResults.results[0]
+
+  const { data: rawRss } = await axios.get(itunesInfo.feedUrl)
+  const rssFeed = await parser.parseString(rawRss)
+
+  res.json({ itunesInfo, rssFeed })
 })
 
 module.exports = router
