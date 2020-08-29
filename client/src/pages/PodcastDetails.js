@@ -48,19 +48,65 @@ export const PodcastDetails = () => {
   }
 
   return (
-    <section style={{ minHeight: '100vh', marginBottom: 72 }}>
+    <section style={{ minHeight: '100vh', margin: 110 }}>
       {isLoading ? (
         'Loading...'
       ) : (
         <div>
-          <img src={podcast.artworkUrl600} alt='cover' />
-          <h1>{podcast.collectionName}</h1>
-          {removeTags(rssFeed.description.trim())}
-          <article>
-            <ul>
+          <div
+            className='titleCard'
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              marginBottom: '3rem'
+            }}
+          >
+            <img
+              src={podcast.artworkUrl600}
+              alt='cover'
+              style={{
+                width: 300,
+                height: 300,
+                border: '2px solid var(--mainWhite)',
+                boxShadow: 'var(--lightShadow)'
+              }}
+            />
+            <div
+              className='cardText'
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                marginLeft: '2rem'
+              }}
+            >
+              <h1 style={{ fontSize: 48, color: 'var(--primaryColor' }}>
+                {podcast.collectionName}
+              </h1>
+              <hr />
+            </div>
+          </div>
+          <article style={{ margin: '2rem 0' }}>
+            <p style={{ marginBottom: '0.5rem' }}>
+              {removeTags(rssFeed.description.trim())}
+            </p>
+            <ul style={{ display: 'flex' }}>
               {podcast.genres.map((genre, index) => {
                 if (!genre.toLowerCase().includes('podcast')) {
-                  return <li key={index}>{genre}</li>
+                  return (
+                    <li
+                      key={index}
+                      style={{
+                        margin: '0 0.5rem',
+                        backgroundColor: 'var(--secondaryColor)',
+                        padding: '0.5rem',
+                        borderRadius: '20px',
+                        color: 'var(--mainWhite)'
+                      }}
+                    >
+                      {genre}
+                    </li>
+                  )
                 }
               })}
             </ul>
