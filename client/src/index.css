@@ -12,8 +12,8 @@
   --mainGrey: #ececec;
   --darkGrey: #afafaf;
   --mainBlack: #222;
-  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
-  --darkShadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  --darkShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --lightShadow: 0 0 8px rgba(0, 0, 0, 0.4);
   --mainTransition: all 0.3s linear;
   --mainBorderRadius: 0.25rem;
 }
