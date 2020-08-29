@@ -5,12 +5,15 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 import App from './App'
 import { UserProvider } from './context/UserContext'
+import { PlayerProvider } from './context/PlayerContext'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <UserProvider>
-        <App />
+        <PlayerProvider>
+          <App />
+        </PlayerProvider>
       </UserProvider>
     </Router>
   </React.StrictMode>,
