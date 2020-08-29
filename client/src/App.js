@@ -3,6 +3,7 @@ import { Switch, Route } from 'react-router-dom'
 
 import './App.css'
 import { Search, PodcastDetails } from './pages'
+import { PlayerBar } from './components/PlayerBar'
 
 function App () {
   return (
@@ -15,6 +16,7 @@ function App () {
           <PodcastDetails />
         </Route>
       </Switch>
+      <PlayerBar />
     </div>
   )
 }

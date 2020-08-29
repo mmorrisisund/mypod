@@ -14,6 +14,7 @@
   "artworkUrl30": "https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/f5/fe/97/f5fe9719-79ee-a535-aaca-7971838da991/mza_1363425183235475554.png/30x30bb.jpg",
   "artworkUrl60": "https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/f5/fe/97/f5fe9719-79ee-a535-aaca-7971838da991/mza_1363425183235475554.png/60x60bb.jpg",
   "artworkUrl100": "https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/f5/fe/97/f5fe9719-79ee-a535-aaca-7971838da991/mza_1363425183235475554.png/100x100bb.jpg",
+  "artworkUrl600": "https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/f5/fe/97/f5fe9719-79ee-a535-aaca-7971838da991/mza_1363425183235475554.png/600x600bb.jpg",
   "collectionPrice": 0,
   "trackPrice": 0,
   "trackRentalPrice": 0,
@@ -28,7 +29,6 @@
   "currency": "USD",
   "primaryGenreName": "News",
   "contentAdvisoryRating": "Explicit",
-  "artworkUrl600": "https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/f5/fe/97/f5fe9719-79ee-a535-aaca-7971838da991/mza_1363425183235475554.png/600x600bb.jpg",
   "genreIds": ["1489", "26", "1324"],
   "genres": ["News", "Podcasts", "Society & Culture"]
 }
