@@ -1,0 +1,24 @@
+.playerControls {
+  width: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.controlButtonPrimary {
+  width: 64px;
+  height: 64px;
+  color: var(--primaryColor);
+  outline: none;
+  border: none;
+  background: transparent;
+}
+
+.controlButtonSecondary {
+  width: 48px;
+  height: 48px;
+  color: var(--secondaryColor);
+  outline: none;
+  border: none;
+  background: transparent;
+}

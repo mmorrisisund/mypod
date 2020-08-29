@@ -1,0 +1,91 @@
+:root {
+  --thumbHeight: 20px;
+  --thumbWidth: 20px;
+}
+
+input[type='range'] {
+  height: 27px;
+  -webkit-appearance: none;
+  margin: 10px 0;
+  width: 150px;
+}
+input[type='range']:focus {
+  outline: none;
+}
+input[type='range']::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px var(--secondaryColor);
+  background: var(--secondaryColor);
+  border-radius: 0px;
+  border: 1px solid var(--secondaryColor);
+}
+input[type='range']::-webkit-slider-thumb {
+  box-shadow: 1px 1px 2px var(--secondaryColor);
+  border: 0px solid var(--secondaryColor);
+  height: var(--thumbHeight);
+  width: var(--thumbWidth);
+  border-radius: 18px;
+  background: var(--primaryColor);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -8px;
+}
+input[type='range']:focus::-webkit-slider-runnable-track {
+  background: var(--secondaryColor);
+}
+input[type='range']::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px var(--secondaryColor);
+  background: var(--secondaryColor);
+  border-radius: 0px;
+  border: 1px solid var(--secondaryColor);
+}
+input[type='range']::-moz-range-thumb {
+  box-shadow: 1px 1px 2px var(--secondaryColor);
+  border: 0px solid var(--secondaryColor);
+  height: var(--thumbHeight);
+  width: var(--thumbWidth);
+  border-radius: 18px;
+  background: var(--primaryColor);
+  cursor: pointer;
+}
+input[type='range']::-ms-track {
+  width: 100%;
+  height: 5px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type='range']::-ms-fill-lower {
+  background: var(--secondaryColor);
+  border: 1px solid var(--secondaryColor);
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px var(--secondaryColor);
+}
+input[type='range']::-ms-fill-upper {
+  background: var(--secondaryColor);
+  border: 1px solid var(--secondaryColor);
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px var(--secondaryColor);
+}
+input[type='range']::-ms-thumb {
+  margin-top: 1px;
+  box-shadow: 1px 1px 2px var(--secondaryColor);
+  border: 0px solid var(--secondaryColor);
+  height: var(--thumbHeight);
+  width: var(--thumbWidth);
+  border-radius: 18px;
+  background: var(--primaryColor);
+  cursor: pointer;
+}
+input[type='range']:focus::-ms-fill-lower {
+  background: var(--secondaryColor);
+}
+input[type='range']:focus::-ms-fill-upper {
+  background: var(--secondaryColor);
+}
