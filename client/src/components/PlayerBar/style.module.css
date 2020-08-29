@@ -1,0 +1,48 @@
+.playerContainer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--mainWhite);
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.playerLeft {
+  width: 33%;
+}
+
+.playerMiddle {
+  display: flex;
+  justify-content: center;
+  width: 33%;
+}
+
+.playerRight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 33%;
+}
+
+.nowPlaying {
+  display: flex;
+}
+
+.nowPlayingImage {
+  margin-right: 1rem;
+}
+
+.nowPlayingInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.nowPlayingInfoTitle {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}

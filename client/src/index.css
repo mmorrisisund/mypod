@@ -1,13 +1,68 @@
-body {
+/* Fonts */
+@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap);
+
+/* #region Variables */
+:root {
+  --primaryFont: Roboto, sans-serif;
+  --primaryColor: #294259;
+  --secondaryColor: #7aa8bf;
+  --mainBackground: #f8f8f7;
+  --mainWhite: #fff;
+  --offWhite: #f7f7f7;
+  --mainGrey: #ececec;
+  --darkGrey: #afafaf;
+  --mainBlack: #222;
+  --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
+  --darkShadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  --mainTransition: all 0.3s linear;
+  --mainBorderRadius: 0.25rem;
+}
+/* #endregion */
+
+/* #region Global Styles */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: var(--primaryFont);
+  color: var(--mainBlack);
+  background: var(--mainBackground);
+  line-height: 1.4;
+  font-size: 1rem;
+  font-weight: 300;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--primaryFont);
+  /* margin-bottom: 1.25rem; */
+}
+/* p {
+  margin-bottom: 1.25rem;
+} */
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: var(--mainBlack);
+}
+
+.loading {
+  text-transform: capitalize;
+  text-align: center;
+  font-size: 1.7rem;
+  margin-top: 3rem;
+}
+.loading img {
+  width: 10rem;
+  margin: 0 auto;
+}
+
+/* #endregion */
