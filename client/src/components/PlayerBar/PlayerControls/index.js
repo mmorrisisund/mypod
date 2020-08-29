@@ -1,14 +1,10 @@
 import React, { useContext } from 'react'
-import {
-  MdPlayCircleFilled,
-  MdPauseCircleFilled,
-  MdReplay10,
-  MdForward30
-} from 'react-icons/md'
+import { MdReplay10, MdForward30 } from 'react-icons/md'
 import { IconContext } from 'react-icons'
 
 import style from './style.module.css'
 import { PlayerContext } from '../../../context/PlayerContext'
+import { PlayButton } from '../../PlayButton'
 
 export const PlayerControls = ({ onSeekBackward, onSeekForward }) => {
   const { isPlaying, setIsPlaying, episode } = useContext(PlayerContext)
@@ -30,14 +26,13 @@ export const PlayerControls = ({ onSeekBackward, onSeekForward }) => {
         >
           <MdReplay10 />
         </button>
-        <button
+        <PlayButton
           className={style.controlButtonPrimary}
           onClick={handlePlayClick}
           disabled={!episode}
-          style={disabledStyle}
-        >
-          {isPlaying ? <MdPauseCircleFilled /> : <MdPlayCircleFilled />}
-        </button>
+          isPlaying={isPlaying}
+        />
+
         <button
           className={style.controlButtonSecondary}
           onClick={handleOnForwardClick}
