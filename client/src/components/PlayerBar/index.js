@@ -3,9 +3,10 @@ import ReactPlayer from 'react-player'
 
 import style from './style.module.css'
 import { PlayerContext } from '../../context/PlayerContext'
-import { InputControl } from '../InputControl'
+import { RangeControl } from '../RangeControl'
 import { ProgressBar } from '../ProgressBar'
 import { PlayerControls } from './PlayerControls'
+import { NowPlaying } from './NowPlaying'
 
 export const PlayerBar = () => {
   const [progress, setProgress] = useState(0)
@@ -50,7 +51,7 @@ export const PlayerBar = () => {
         />
       </div>
       <div className={style.playerRight}>
-        <InputControl
+        <RangeControl
           min={0}
           max={1}
           step={0.01}
@@ -70,30 +71,4 @@ export const PlayerBar = () => {
       />
     </div>
   )
-}
-
-const NowPlaying = ({ podcast, episode }) => {
-  return podcast && episode ? (
-    <div className='now-playing' style={{ display: 'flex' }}>
-      <img
-        src={podcast.artworkUrl100}
-        alt='cover'
-        style={{ marginRight: '1rem' }}
-      />
-      <div
-        className='now-playing-info'
-        style={{
-          flex: '1',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center'
-        }}
-      >
-        <h4 style={{ fontWeight: '500', marginBottom: '0.5rem' }}>
-          {episode.title}
-        </h4>
-        <p>{podcast.collectionName}</p>
-      </div>
-    </div>
-  ) : null
 }

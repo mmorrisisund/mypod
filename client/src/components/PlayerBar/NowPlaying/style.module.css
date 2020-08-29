@@ -1,0 +1,19 @@
+.nowPlaying {
+  display: flex;
+}
+
+.nowPlayingInfo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: center;
+}
+
+.nowPlayingImage {
+  margin-right: 1rem;
+}
+
+.nowPlayingInfoTitle {
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}

@@ -26,23 +26,3 @@
   justify-content: center;
   width: 33%;
 }
-
-.nowPlaying {
-  display: flex;
-}
-
-.nowPlayingImage {
-  margin-right: 1rem;
-}
-
-.nowPlayingInfo {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-  justify-content: center;
-}
-
-.nowPlayingInfoTitle {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
