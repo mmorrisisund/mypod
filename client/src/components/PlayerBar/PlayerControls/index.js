@@ -27,7 +27,6 @@ export const PlayerControls = ({ onSeekBackward, onSeekForward }) => {
           <MdReplay10 />
         </button>
         <PlayButton
-          className={style.controlButtonPrimary}
           onClick={handlePlayClick}
           disabled={!episode}
           isPlaying={isPlaying}
