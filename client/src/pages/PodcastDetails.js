@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
+import moment from 'moment'
 
 import { apiUrl } from '../util/url'
 import { removeTags } from '../util/helperFns'
 import { PlayerContext } from '../context/PlayerContext'
+import { PlayButton } from '../components/PlayButton'
 
 export const PodcastDetails = () => {
   const { podcastId } = useParams()
@@ -97,11 +99,12 @@ export const PodcastDetails = () => {
                     <li
                       key={index}
                       style={{
-                        margin: '0 0.5rem',
+                        margin: '0px 0.5rem',
                         backgroundColor: 'var(--secondaryColor)',
-                        padding: '0.5rem',
+                        padding: ' 0.5rem',
                         borderRadius: '20px',
-                        color: 'var(--mainWhite)'
+                        color: 'var(--mainWhite)',
+                        boxShadow: 'var(--lightShadow)'
                       }}
                     >
                       {genre}
@@ -112,17 +115,39 @@ export const PodcastDetails = () => {
             </ul>
           </article>
           {!episode ? (
-            <article>
+            <article style={{ margin: '1rem' }}>
               <ul>
-                {rssFeed.items.map((episode, index) => {
+                {rssFeed.items.map((currentEpisode, index) => {
                   return (
-                    <li key={episode.guid}>
-                      <p onClick={() => handleEpisodeClick(index)}>
-                        {episode.title}
+                    <li
+                      key={currentEpisode.guid}
+                      style={{
+                        backgroundColor: 'var(--mainWhite)',
+                        borderBottom: '2px solid var(--mainGrey)',
+                        padding: '1rem',
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        borderRadius: '5px',
+                        alignItems: 'center'
+                      }}
+                    >
+                      <p
+                        onClick={() => handleEpisodeClick(index)}
+                        style={{
+                          cursor: 'pointer'
+                        }}
+                      >
+                        {currentEpisode.title}
                       </p>
-                      <button onClick={() => handlePlayClick(episode)}>
-                        |&gt;
-                      </button>
+                      <PlayButton
+                        style={{
+                          width: 32,
+                          height: 32,
+                          boxShadow: 'var(--lightShadow)',
+                          borderRadius: '100px'
+                        }}
+                        onClick={() => handlePlayClick(currentEpisode)}
+                      />
                     </li>
                   )
                 })}
@@ -130,11 +155,61 @@ export const PodcastDetails = () => {
             </article>
           ) : (
             <article>
-              <button onClick={handleBackButtonClick}>Back</button>
-              <h2>{episode.title}</h2>
-              <button onClick={() => handlePlayClick(episode)}>|&gt;</button>
-              <h4>{episode.pubDate}</h4>
-              <p>{episode.contentSnippet}</p>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center'
+                  }}
+                >
+                  <button
+                    style={{
+                      border: 'none',
+                      padding: '1rem',
+                      backgroundColor: 'var(--primaryColor)',
+                      color: 'var(--mainWhite)',
+                      borderRadius: '5px',
+                      boxShadow: 'var(--lightShadow)',
+                      letterSpacing: '1.5px',
+                      textTransform: 'uppercase'
+                    }}
+                    onClick={handleBackButtonClick}
+                  >
+                    Back
+                  </button>
+                  <h2>{episode.title}</h2>
+                  <PlayButton
+                    style={{
+                      color: 'var(--primaryColor)',
+                      boxShadow: 'var(--lightShadow)',
+                      borderRadius: '100px',
+                      background: 'var(--offWhite)'
+                    }}
+                    onClick={() => handlePlayClick(episode)}
+                  />
+                </div>
+                <hr
+                  style={{
+                    width: '75%',
+                    margin: '0 auto',
+                    borderColor: 'var(--mainGrey)'
+                  }}
+                />
+              </div>
+              <h4 style={{ margin: '2rem' }}>
+                {moment(episode.isoDate).format('MMMM Do YYYY')}
+              </h4>
+              <p
+                style={{
+                  backgroundColor: 'var(--mainWhite)',
+                  padding: '2rem',
+                  borderRadius: '5px',
+                  borderBottom: '2px solid var(--darkGrey)'
+                }}
+              >
+                {episode.contentSnippet}
+              </p>
             </article>
           )}
         </div>
