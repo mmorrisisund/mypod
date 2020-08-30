@@ -1,0 +1,24 @@
+.titleCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+
+.titleCardImage {
+  width: 300px;
+  height: 300px;
+  border: 2px solid var(--mainWhite);
+  box-shadow: var(--lightShadow);
+}
+
+.titleCardText {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+}
+
+.titleCardHeading {
+  font-size: 48px;
+  color: var(--primaryColor);
+}

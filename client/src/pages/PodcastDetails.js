@@ -8,6 +8,7 @@ import { PlayerContext } from '../context/PlayerContext'
 import { EpisodeDetails } from '../components/EpisodeDetail'
 import { EpisodeList } from '../components/EpisodeList'
 import { GenreList } from '../components/GenreList'
+import { TitleCard } from '../components/TitleCard'
 
 export const PodcastDetails = () => {
   const { podcastId } = useParams()
@@ -42,39 +43,7 @@ export const PodcastDetails = () => {
         'Loading...'
       ) : (
         <div>
-          <div
-            className='titleCard'
-            style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: '3rem'
-            }}
-          >
-            <img
-              src={podcast.artworkUrl600}
-              alt='cover'
-              style={{
-                width: 300,
-                height: 300,
-                border: '2px solid var(--mainWhite)',
-                boxShadow: 'var(--lightShadow)'
-              }}
-            />
-            <div
-              className='cardText'
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                marginLeft: '2rem'
-              }}
-            >
-              <h1 style={{ fontSize: 48, color: 'var(--primaryColor' }}>
-                {podcast.collectionName}
-              </h1>
-              <hr />
-            </div>
-          </div>
+          <TitleCard podcast={podcast} />
 
           <article style={{ margin: '2rem 0' }}>
             <p style={{ marginBottom: '0.5rem' }}>
