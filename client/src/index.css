@@ -66,3 +66,21 @@ a {
 }
 
 /* #endregion */
+
+.searchPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 110px;
+}
+
+.searchResults {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.podcastDetailsPage {
+  min-height: 100vh;
+  margin: 110px;
+}

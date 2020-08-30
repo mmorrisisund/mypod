@@ -39,7 +39,7 @@ export const PodcastDetails = () => {
   const handleOnReturnRequest = () => setSelectedEpisode(undefined)
 
   return (
-    <section style={{ minHeight: '100vh', margin: 110 }}>
+    <section className='podcastDetailsPage'>
       {isLoading ? (
         <div style={{ textAlign: 'center' }}>
           <Loading content='Please wait while we load your podcast.' />
