@@ -1,0 +1,14 @@
+.podcastCard {
+  width: 300px;
+  height: 375px;
+  box-shadow: var(--lightShadow);
+  margin: 1rem;
+}
+
+.podcastCardImage {
+  width: 100%;
+}
+
+.podcastCardTitle {
+  padding: 0.5rem 1rem;
+}
