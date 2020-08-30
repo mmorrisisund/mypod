@@ -34,7 +34,7 @@ export const PodcastDetails = () => {
       }
     }
     getPodcast()
-  }, [podcastId])
+  }, [podcastId, setPodcast])
 
   const handleOnReturnRequest = () => setSelectedEpisode(undefined)
 
