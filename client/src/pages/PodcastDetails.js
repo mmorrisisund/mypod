@@ -5,20 +5,16 @@ import axios from 'axios'
 import { apiUrl } from '../util/url'
 import { removeTags } from '../util/helperFns'
 import { PlayerContext } from '../context/PlayerContext'
-import { PlayButton } from '../components/PlayButton'
 import { EpisodeDetails } from '../components/EpisodeDetail'
+import { EpisodeList } from '../components/EpisodeList'
 
 export const PodcastDetails = () => {
   const { podcastId } = useParams()
   const [isLoading, setIsLoading] = useState(true)
-  const [podcast, setPodcast] = useState(undefined)
+
   const [rssFeed, setRssFeed] = useState(undefined)
-  const [episode, setEpisode] = useState(undefined)
-  const {
-    setIsPlaying,
-    setEpisode: setPlayerEpisode,
-    setPodcast: setPlayerPodcast
-  } = useContext(PlayerContext)
+  const [selectedEpisode, setSelectedEpisode] = useState(undefined)
+  const { podcast, setPodcast } = useContext(PlayerContext)
 
   useEffect(() => {
     const getPodcast = async () => {
@@ -37,16 +33,7 @@ export const PodcastDetails = () => {
     getPodcast()
   }, [podcastId])
 
-  const handleEpisodeClick = index => {
-    setEpisode(rssFeed.items[index])
-  }
-
-  const handlePlayClick = episode => {
-    console.log(episode)
-    setIsPlaying(true)
-    setPlayerEpisode(episode)
-    setPlayerPodcast(podcast)
-  }
+  const handleOnReturnRequest = () => setSelectedEpisode(undefined)
 
   return (
     <section style={{ minHeight: '100vh', margin: 110 }}>
@@ -113,47 +100,18 @@ export const PodcastDetails = () => {
               })}
             </ul>
           </article>
-          {!episode ? (
-            <article style={{ margin: '1rem' }}>
-              <ul>
-                {rssFeed.items.map((currentEpisode, index) => {
-                  return (
-                    <li
-                      key={currentEpisode.guid}
-                      style={{
-                        backgroundColor: 'var(--mainWhite)',
-                        borderBottom: '2px solid var(--mainGrey)',
-                        padding: '1rem',
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        borderRadius: '5px',
-                        alignItems: 'center'
-                      }}
-                    >
-                      <p
-                        onClick={() => handleEpisodeClick(index)}
-                        style={{
-                          cursor: 'pointer'
-                        }}
-                      >
-                        {currentEpisode.title}
-                      </p>
-                      <PlayButton
-                        style={{
-                          width: 32,
-                          height: 32,
-                          boxShadow: 'var(--lightShadow)',
-                          borderRadius: '100px'
-                        }}
-                        onClick={() => handlePlayClick(currentEpisode)}
-                      />
-                    </li>
-                  )
-                })}
-              </ul>
-            </article>
+
+          {!selectedEpisode ? (
+            <EpisodeList
+              episodes={rssFeed.items}
+              onEpisodeSelect={setSelectedEpisode}
+            />
           ) : (
-            <EpisodeDetails podcast={podcast} episode={episode} />
+            <EpisodeDetails
+              podcast={podcast}
+              episode={selectedEpisode}
+              onReturnRequest={handleOnReturnRequest}
+            />
           )}
         </div>
       )}

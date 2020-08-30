@@ -1,0 +1,17 @@
+.episodeList {
+  margin: 1rem;
+}
+
+.episodeItem {
+  background-color: var(--mainWhite);
+  border-bottom: 2px solid var(--mainGrey);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.episodeTitle {
+  cursor: pointer;
+}
