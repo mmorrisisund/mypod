@@ -5,9 +5,8 @@ import style from './style.module.css'
 import { PlayerContext } from '../../context/PlayerContext'
 import { PlayButton } from '../PlayButton'
 
-export const EpisodeDetails = ({ episode, podcast }) => {
-  const { setEpisode, setPodcast, setIsPlaying } = useContext(PlayerContext)
-  const handleBackButtonClick = () => setEpisode(undefined)
+export const EpisodeDetails = ({ episode, podcast, onReturnRequest }) => {
+  const { setEpisode, setIsPlaying } = useContext(PlayerContext)
   const playButtonStyle = {
     color: 'var(--primaryColor)',
     boxShadow: 'var(--lightShadow)',
@@ -18,14 +17,13 @@ export const EpisodeDetails = ({ episode, podcast }) => {
   const handlePlayClick = episode => {
     setIsPlaying(true)
     setEpisode(episode)
-    setPodcast(podcast)
   }
 
   return (
     <article>
       <div className={style.titleSection}>
         <div className={style.titleHeader}>
-          <button className={style.backButton} onClick={handleBackButtonClick}>
+          <button className={style.backButton} onClick={onReturnRequest}>
             Back
           </button>
           <h2>{episode.title}</h2>
