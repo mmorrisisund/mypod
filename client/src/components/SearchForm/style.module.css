@@ -1,0 +1,29 @@
+.searchForm {
+  background-color: var(--mainWhite);
+  max-width: 75%;
+  padding: 3rem;
+  border-radius: 5px;
+  box-shadow: var(--lightShadow);
+  margin: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.searchBox {
+  padding: 1rem;
+  border: 1px solid var(--darkGrey);
+  height: 48px;
+  font-size: 1.5rem;
+}
+
+.searchButton {
+  border: none;
+  padding: 1rem;
+  background-color: var(--primaryColor);
+  color: var(--mainWhite);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  height: 48px;
+}
