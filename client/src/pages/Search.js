@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import axios from 'axios'
 
+import { SearchForm } from '../components/SearchForm'
+import { PodcastCard } from '../components/PodcastCard'
+
 export const Search = () => {
-  const [term, setTerm] = useState('dollop')
   const [searchResults, setSearchResults] = useState([])
 
-  const handleOnClickSubmit = async () => {
+  const handleOnSearch = async term => {
     const { data } = await axios.get(
       `/api/v1/search?media=podcast&term=${term}`
     )
@@ -14,30 +15,14 @@ export const Search = () => {
   }
 
   return (
-    <section>
+    <section className='searchPage'>
+      <SearchForm onSearch={handleOnSearch} />
+
       <div>
-        {/* Search form */}
-        <div>
-          <label htmlFor='term'>Search Term</label>
-          <input
-            type='text'
-            name='term'
-            id='term'
-            value={term}
-            onChange={({ target }) => setTerm(target.value)}
-          />
-        </div>
-        <button onClick={handleOnClickSubmit}>Submit</button>
-      </div>
-      <div>
-        {/* Results area */}
-        <ul>
-          {searchResults.map(result => (
-            <li key={result.collectionId}>
-              <img src={result.artworkUrl60} alt='cover' />
-              <Link to={`/podcast/${result.collectionId}`}>
-                {result.collectionName}
-              </Link>
+        <ul className='searchResults'>
+          {searchResults.map(podcast => (
+            <li key={podcast.collectionId}>
+              <PodcastCard podcast={podcast} />
             </li>
           ))}
         </ul>
