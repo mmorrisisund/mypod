@@ -5,6 +5,7 @@ import axios from 'axios'
 import { apiUrl } from '../util/url'
 import { removeTags } from '../util/helperFns'
 import { PlayerContext } from '../context/PlayerContext'
+import { Loading } from '../components/Loading'
 import { EpisodeDetails } from '../components/EpisodeDetail'
 import { EpisodeList } from '../components/EpisodeList'
 import { GenreList } from '../components/GenreList'
@@ -40,7 +41,9 @@ export const PodcastDetails = () => {
   return (
     <section style={{ minHeight: '100vh', margin: 110 }}>
       {isLoading ? (
-        'Loading...'
+        <div style={{ textAlign: 'center' }}>
+          <Loading content='Please wait while we load your podcast.' />
+        </div>
       ) : (
         <div>
           <TitleCard podcast={podcast} />
