@@ -1,0 +1,12 @@
+.genreList {
+  display: flex;
+}
+
+.genreListItem {
+  margin: 0 0.5rem;
+  background-color: var(--secondaryColor);
+  padding: 0.5rem;
+  border-radius: 20px;
+  color: var(--mainWhite);
+  box-shadow: var(--lightShadow);
+}

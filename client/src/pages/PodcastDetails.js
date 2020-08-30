@@ -7,6 +7,7 @@ import { removeTags } from '../util/helperFns'
 import { PlayerContext } from '../context/PlayerContext'
 import { EpisodeDetails } from '../components/EpisodeDetail'
 import { EpisodeList } from '../components/EpisodeList'
+import { GenreList } from '../components/GenreList'
 
 export const PodcastDetails = () => {
   const { podcastId } = useParams()
@@ -74,31 +75,12 @@ export const PodcastDetails = () => {
               <hr />
             </div>
           </div>
+
           <article style={{ margin: '2rem 0' }}>
             <p style={{ marginBottom: '0.5rem' }}>
               {removeTags(rssFeed.description.trim())}
             </p>
-            <ul style={{ display: 'flex' }}>
-              {podcast.genres.map((genre, index) => {
-                if (!genre.toLowerCase().includes('podcast')) {
-                  return (
-                    <li
-                      key={index}
-                      style={{
-                        margin: '0px 0.5rem',
-                        backgroundColor: 'var(--secondaryColor)',
-                        padding: ' 0.5rem',
-                        borderRadius: '20px',
-                        color: 'var(--mainWhite)',
-                        boxShadow: 'var(--lightShadow)'
-                      }}
-                    >
-                      {genre}
-                    </li>
-                  )
-                }
-              })}
-            </ul>
+            <GenreList genres={podcast.genres} />
           </article>
 
           {!selectedEpisode ? (
