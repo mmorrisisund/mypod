@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import moment from 'moment'
 
 import { apiUrl } from '../util/url'
 import { removeTags } from '../util/helperFns'
 import { PlayerContext } from '../context/PlayerContext'
 import { PlayButton } from '../components/PlayButton'
+import { EpisodeDetails } from '../components/EpisodeDetail'
 
 export const PodcastDetails = () => {
   const { podcastId } = useParams()
@@ -40,7 +40,6 @@ export const PodcastDetails = () => {
   const handleEpisodeClick = index => {
     setEpisode(rssFeed.items[index])
   }
-  const handleBackButtonClick = () => setEpisode(undefined)
 
   const handlePlayClick = episode => {
     console.log(episode)
@@ -154,63 +153,7 @@ export const PodcastDetails = () => {
               </ul>
             </article>
           ) : (
-            <article>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <div
-                  style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
-                  }}
-                >
-                  <button
-                    style={{
-                      border: 'none',
-                      padding: '1rem',
-                      backgroundColor: 'var(--primaryColor)',
-                      color: 'var(--mainWhite)',
-                      borderRadius: '5px',
-                      boxShadow: 'var(--lightShadow)',
-                      letterSpacing: '1.5px',
-                      textTransform: 'uppercase'
-                    }}
-                    onClick={handleBackButtonClick}
-                  >
-                    Back
-                  </button>
-                  <h2>{episode.title}</h2>
-                  <PlayButton
-                    style={{
-                      color: 'var(--primaryColor)',
-                      boxShadow: 'var(--lightShadow)',
-                      borderRadius: '100px',
-                      background: 'var(--offWhite)'
-                    }}
-                    onClick={() => handlePlayClick(episode)}
-                  />
-                </div>
-                <hr
-                  style={{
-                    width: '75%',
-                    margin: '0 auto',
-                    borderColor: 'var(--mainGrey)'
-                  }}
-                />
-              </div>
-              <h4 style={{ margin: '2rem' }}>
-                {moment(episode.isoDate).format('MMMM Do YYYY')}
-              </h4>
-              <p
-                style={{
-                  backgroundColor: 'var(--mainWhite)',
-                  padding: '2rem',
-                  borderRadius: '5px',
-                  borderBottom: '2px solid var(--darkGrey)'
-                }}
-              >
-                {episode.contentSnippet}
-              </p>
-            </article>
+            <EpisodeDetails podcast={podcast} episode={episode} />
           )}
         </div>
       )}
