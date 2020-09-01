@@ -3,7 +3,6 @@ import React from 'react'
 import { ReactComponent as LoadingImage } from './spinner.svg'
 
 export const Loading = ({ content }) => {
-  console.log(content)
   return (
     <div
       style={{
