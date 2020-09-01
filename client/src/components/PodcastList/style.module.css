@@ -1,0 +1,4 @@
+.podcastList {
+  display: flex;
+  flex-wrap: wrap;
+}
