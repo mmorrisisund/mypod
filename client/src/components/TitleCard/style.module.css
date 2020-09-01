@@ -1,7 +1,6 @@
 .titleCard {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: 3rem;
 }
 
@@ -21,4 +20,29 @@
 .titleCardHeading {
   font-size: 48px;
   color: var(--primaryColor);
+}
+
+.subscribeButton {
+  align-self: flex-start;
+  margin-top: 2rem;
+  background: var(--primaryColor);
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--offWhite);
+  box-shadow: var(--lightShadow);
+}
+
+.subscribeButtonContent {
+  display: flex;
+  align-items: center;
+}
+
+.subscribeButtonIcon {
+  height: 16px;
+  width: 16px;
+  margin-right: 5px;
+  color: var(--mainWhite);
 }
