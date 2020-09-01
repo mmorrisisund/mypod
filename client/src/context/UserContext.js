@@ -15,8 +15,21 @@ export const UserProvider = ({ children }) => {
     setSubscriptions(subscriptions)
   }
 
+  const addSubscription = subscription =>
+    updateSubscriptions([...subscriptions, subscription])
+
+  const removeSubscription = subscription => {
+    updateSubscriptions(
+      subscriptions.filter(
+        sub => sub.collectionId !== subscription.collectionId
+      )
+    )
+  }
+
   return (
-    <UserContext.Provider value={{ user, subscriptions, updateSubscriptions }}>
+    <UserContext.Provider
+      value={{ user, subscriptions, addSubscription, removeSubscription }}
+    >
       {children}
     </UserContext.Provider>
   )
