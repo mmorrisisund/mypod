@@ -76,12 +76,11 @@ a {
   margin: 120px;
 }
 
-.searchResults {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 .podcastDetailsPage {
   min-height: 100vh;
+  margin: 120px;
+}
+
+.subscriptionsPage {
   margin: 120px;
 }
