@@ -2,7 +2,7 @@ import React from 'react'
 import { Switch, Route } from 'react-router-dom'
 
 import './App.css'
-import { Search, PodcastDetails } from './pages'
+import { Search, PodcastDetails, Subscriptions } from './pages'
 import { PlayerBar } from './components/PlayerBar'
 import { NavBar } from './components/NavBar'
 
@@ -16,6 +16,9 @@ function App () {
         </Route>
         <Route path='/podcast/:podcastId'>
           <PodcastDetails />
+        </Route>
+        <Route path='/subscriptions'>
+          <Subscriptions />
         </Route>
       </Switch>
       <PlayerBar />
