@@ -11,7 +11,7 @@ function App () {
     <div>
       <NavBar />
       <Switch>
-        <Route path='/search'>
+        <Route exact path='/'>
           <Search />
         </Route>
         <Route path='/podcast/:podcastId'>
