@@ -5,7 +5,7 @@ import { SearchForm } from '../components/SearchForm'
 import { PodcastList } from '../components/PodcastList'
 
 export const Search = () => {
-  const [searchResults, setSearchResults] = useState([])
+  const [searchResults, setSearchResults] = useState(undefined)
 
   const handleOnSearch = async term => {
     const { data } = await axios.get(
@@ -18,7 +18,7 @@ export const Search = () => {
     <section className='searchPage'>
       <SearchForm onSearch={handleOnSearch} />
 
-      <PodcastList podcasts={searchResults} />
+      {searchResults && <PodcastList podcasts={searchResults} />}
     </section>
   )
 }
