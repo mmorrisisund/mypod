@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import style from './style.module.css'
 
 export const SearchForm = ({ onSearch }) => {
-  const [term, setTerm] = useState('dollop')
+  const [term, setTerm] = useState('')
 
   return (
     <div className={style.searchForm}>
