@@ -4,17 +4,18 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import './index.css'
 import App from './App'
-import { UserProvider } from './context/UserContext'
-import { PlayerProvider } from './context/PlayerContext'
+import { UserProvider, PlayerProvider, SearchProvider } from './context'
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <UserProvider>
-        <PlayerProvider>
-          <App />
-        </PlayerProvider>
-      </UserProvider>
+      <SearchProvider>
+        <UserProvider>
+          <PlayerProvider>
+            <App />
+          </PlayerProvider>
+        </UserProvider>
+      </SearchProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')

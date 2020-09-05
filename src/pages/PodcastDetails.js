@@ -40,7 +40,7 @@ export const PodcastDetails = () => {
         setRssFeed(rssFeed)
         setIsLoading(false)
       } catch (err) {
-        console.log(err)
+        console.log('Error: ', err)
       }
     }
     getPodcast()
