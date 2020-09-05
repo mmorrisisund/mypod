@@ -5,8 +5,13 @@ import style from './style.module.css'
 export const SearchForm = ({ onSearch }) => {
   const [term, setTerm] = useState('')
 
+  const handleOnSubmit = e => {
+    e.preventDefault()
+    onSearch(term)
+  }
+
   return (
-    <div className={style.searchForm}>
+    <form onSubmit={handleOnSubmit} className={style.searchForm}>
       <input
         className={style.searchBox}
         type='text'
@@ -14,9 +19,9 @@ export const SearchForm = ({ onSearch }) => {
         value={term}
         onChange={({ target }) => setTerm(target.value)}
       />
-      <button className={style.searchButton} onClick={() => onSearch(term)}>
+      <button className={style.searchButton} type='submit'>
         Search
       </button>
-    </div>
+    </form>
   )
 }
