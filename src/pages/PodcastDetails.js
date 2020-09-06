@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import jsonpAdapter from 'axios-jsonp'
-import Parser from 'rss-parser'
 
 import { lookupUrl } from '../util/url'
 import { removeTags } from '../util/helperFns'
@@ -26,15 +24,9 @@ export const PodcastDetails = () => {
       try {
         setIsLoading(true)
 
-        const { data: itunesResults } = await axios({
-          url: `${lookupUrl}${podcastId}`,
-          adapter: jsonpAdapter
-        })
-        const itunesInfo = itunesResults.results[0]
-
-        const { data: rawRss } = await axios.get(itunesInfo.feedUrl)
-        const parser = new Parser()
-        const rssFeed = await parser.parseString(rawRss)
+        const {
+          data: { itunesInfo, rssFeed }
+        } = await axios.get(`${lookupUrl}${podcastId}`)
 
         setPodcast(itunesInfo)
         setRssFeed(rssFeed)

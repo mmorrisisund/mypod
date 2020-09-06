@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import axios from 'axios'
-import jsonpAdapter from 'axios-jsonp'
 
 import { searchUrl } from '../util/url'
 import { SearchForm } from '../components/SearchForm'
@@ -12,10 +11,8 @@ export const Search = () => {
 
   const handleOnSearch = async term => {
     try {
-      const { data } = await axios({
-        url: `${searchUrl}${term}`,
-        adapter: jsonpAdapter
-      })
+      const { data } = await axios.get(`${searchUrl}${term}`)
+
       setSearchResults(data.results)
     } catch (error) {
       console.log(error)
