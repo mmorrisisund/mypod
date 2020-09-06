@@ -25,7 +25,9 @@ export const PodcastDetails = () => {
         setIsLoading(true)
 
         const {
-          data: { itunesInfo, rssFeed }
+          data: {
+            data: { itunesInfo, rssFeed }
+          }
         } = await axios.get(`${lookupUrl}${podcastId}`)
 
         setPodcast(itunesInfo)

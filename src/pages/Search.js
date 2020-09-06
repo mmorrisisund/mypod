@@ -11,9 +11,13 @@ export const Search = () => {
 
   const handleOnSearch = async term => {
     try {
-      const { data } = await axios.get(`${searchUrl}${term}`)
+      const {
+        data: {
+          data: { results }
+        }
+      } = await axios.get(`${searchUrl}${term}`)
 
-      setSearchResults(data.results)
+      setSearchResults(results)
     } catch (error) {
       console.log(error)
     }
