@@ -5,8 +5,8 @@ const Parser = require('rss-parser')
 
 const app = express()
 
-app.get('/api/v1/search', searchHandler)
-app.get('/api/v1/podcast/:id', lookupHandler)
+app.get('/.netlify/functions/api/v1/search', searchHandler)
+app.get('/.netlify/functions/api/v1/podcast/:id', lookupHandler)
 app.get('*', notFoundHandler)
 
 module.exports.handler = serverless(app)
