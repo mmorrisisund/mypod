@@ -27,7 +27,7 @@
     "eject": "react-scripts eject",
     "start:lambda": "netlify-lambda serve functions",
     "build:lambda": "netlify-lambda build functions",
-    "prod": "npm run build;npm run build:lambda",
+    "prod": "npm run build:app;npm run build:lambda",
     "start": "npm-run-all --parallel start:app start:lambda"
   },
   "eslintConfig": {
