@@ -42,5 +42,7 @@ async function lookupHandler (req, res) {
 }
 
 function notFoundHandler (req, res) {
-  res.status(404).json({ status: 'error', message: 'destination not found' })
+  res
+    .status(404)
+    .json({ status: 'error', message: `destination not found - ${req.url}` })
 }
